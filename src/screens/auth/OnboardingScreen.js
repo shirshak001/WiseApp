@@ -4,6 +4,7 @@ import {
   Animated, StatusBar,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons } from '@expo/vector-icons';
 import { Colors } from '../../theme/colors';
 
 const { width, height } = Dimensions.get('window');
@@ -11,7 +12,7 @@ const { width, height } = Dimensions.get('window');
 const slides = [
   {
     id: 1,
-    icon: '🔍',
+    icon: 'scan-outline',
     badge: 'AUTONOMOUS SCRUTINY',
     title: 'See Every\nShadow',
     subtitle: 'Continuous scanning across 250+ data broker databases and dark web marketplaces. Know your exposure before attackers do.',
@@ -19,7 +20,7 @@ const slides = [
   },
   {
     id: 2,
-    icon: '⚡',
+    icon: 'flash-outline',
     badge: 'ACTIVE INTERCEPTION',
     title: 'Block Before\nImpact',
     subtitle: 'Lumen AI screens every call. Stealth routing hides your digital footprint. Email aliases absorb phishing attempts.',
@@ -27,7 +28,7 @@ const slides = [
   },
   {
     id: 3,
-    icon: '🛡️',
+    icon: 'shield-checkmark-outline',
     badge: 'AUTOMATED REMEDIATION',
     title: 'Erase Your\nFootprint',
     subtitle: 'Legal takedown requests sent automatically to data brokers. Your Exposure Score drops while you sleep.',
@@ -133,10 +134,8 @@ const OnboardingScreen = ({ navigation }) => {
   );
 };
 
-const SlideItem = ({ slide, isActive }) => {
-  const scale = useRef(new Animated.Value(isActive ? 1 : 0.95)).current;
-  const opacity = useRef(new Animated.Value(isActive ? 1 : 0.5)).current;
 
+const SlideItem = ({ slide, isActive }) => {
   return (
     <View style={styles.slide}>
       {/* Icon card */}
@@ -145,7 +144,7 @@ const SlideItem = ({ slide, isActive }) => {
           colors={[`${slide.accent}22`, `${slide.accent}08`]}
           style={styles.iconGrad}
         >
-          <Text style={styles.iconEmoji}>{slide.icon}</Text>
+          <Ionicons name={slide.icon} size={48} color={slide.accent} />
         </LinearGradient>
       </View>
 
