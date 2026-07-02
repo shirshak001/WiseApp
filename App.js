@@ -7,6 +7,12 @@ import AppNavigator from './src/navigation/AppNavigator';
 // Navigation theme - dark
 const navTheme = {
   ...DarkTheme,
+  fonts: DarkTheme.fonts || {
+    regular: { fontFamily: 'System', fontWeight: '400' },
+    medium: { fontFamily: 'System', fontWeight: '500' },
+    bold: { fontFamily: 'System', fontWeight: '700' },
+    heavy: { fontFamily: 'System', fontWeight: '900' },
+  },
   colors: {
     ...DarkTheme.colors,
     primary: '#6366F1',
